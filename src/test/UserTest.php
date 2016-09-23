@@ -54,7 +54,7 @@ class testUser extends PHPUnit_Framework_TestCase {
 
 	public function testZapisanieNowegoUzytkownika() {
 		$u = new User();
-		$u->setEmail('test@test.pl');
+		$u->setEmail('test' . rand(1, 100) . '@test.pl');
 		$u->setPassword('haslo123');
 		$u->setFirstName('Imie');
 		$u->setLastName('Nazwisko');
