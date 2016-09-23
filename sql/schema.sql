@@ -30,14 +30,6 @@ CREATE TABLE Photos (
   	ON DELETE RESTRICT
 );
 
-CREATE TABLE Admins (
-	id int unsigned not null auto_increment primary key,
-	email varchar(255) not null,
-	password varchar(255) not null,
-	firstname varchar(255) not null,
-	lastname varchar(255) not null
-);
-
 CREATE TABLE Messages (
 	id int unsigned not null auto_increment primary key,
 	subject varchar(255) not null,
@@ -61,6 +53,7 @@ CREATE TABLE Order_Products (
 	id int unsigned not null auto_increment primary key,
 	order_id int unsigned not null,
 	product_id int unsigned not null,
+	quantity int unsigned not null,
 	FOREIGN KEY fk_order(order_id) REFERENCES Orders(id),
 	FOREIGN KEY fk_product(product_id) REFERENCES Products(id)	
 );
@@ -69,6 +62,7 @@ CREATE TABLE Baskets (
 	id int unsigned not null auto_increment primary key,
 	user_id int unsigned not null,
 	product_id int unsigned not null,
+	quantity int unsigned not null,
 	FOREIGN KEY fk_basket_user(user_id) REFERENCES Users(id),
 	FOREIGN KEY fk_basket_product(product_id) REFERENCES Products(id)
 );

@@ -18,6 +18,8 @@ class Product {
 	public function setAvailability($availability){}
 	public function getGroup(){}
 	public function setGroup($group){}
+	public function addPhoto($path_to_image){}
+	public function getPhotos(){}
 
 	public static function getProductsList($group=null){}
 	public static function loadProduct($id){}
