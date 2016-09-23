@@ -13,14 +13,6 @@ class User {
 		$this->db = new PDO(DB_DSN, DB_USER, DB_PASSWD);
 	}
 
-	public function login($email, $password) {
-		if ($email==$this->email && $password==$this->password) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
 	public function setId($id) {
 		$this->id = $id;
 	}
@@ -178,7 +170,7 @@ class User {
 		try {
 			$stmt->execute( array(':id' => $id));
 			if ( $stmt->rowCount() > 0 ) { // uzytkownik istnieje
-	 			$results = $stmt->fetchAll(PDO::FETCH_ASSOC); // do zmiany na listę obiektów
+	 			$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	 			$email = $results[0]['email'];
 	 			$password = $results[0]['password'];
 	 			$firstname = $results[0]['firstname'];
@@ -200,6 +192,7 @@ class User {
 		}
 	}
 
+	public static function login($email, $password) {}
 	public static function deleteUser($id){}
 }
 ?>

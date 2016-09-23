@@ -28,6 +28,9 @@ class Order {
 
 	public static function getOrderList(User $user, $status){}
 	public static function getOrder($id){}
+	public static function getBasket(User $user) {
+		// select * from Orders where state=0 and user_id=user.id
+	}
 }
 
 ?>
