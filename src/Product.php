@@ -22,6 +22,5 @@ class Product {
 	public static function getProductsList($group=null){}
 	public static function loadProduct($id){}
 	public static function deleteProduct($id){}
-
 }
 ?>

@@ -45,6 +45,7 @@ CREATE TABLE Messages (
 	from_user_id int unsigned not null,
 	to_user_id int unsigned not null,
 	senddate timestamp,
+	is_read tinyint(1) DEFAULT 0,
 	FOREIGN KEY fk_from_user(from_user_id) REFERENCES Users(id),
 	FOREIGN KEY fk_to_user(to_user_id) REFERENCES Users(id)
 );
@@ -64,4 +65,11 @@ CREATE TABLE Order_Products (
 	FOREIGN KEY fk_product(product_id) REFERENCES Products(id)	
 );
 
+CREATE TABLE Baskets (
+	id int unsigned not null auto_increment primary key,
+	user_id int unsigned not null,
+	product_id int unsigned not null,
+	FOREIGN KEY fk_basket_user(user_id) REFERENCES Users(id),
+	FOREIGN KEY fk_basket_product(product_id) REFERENCES Products(id)
+);
 
